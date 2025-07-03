@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试111任务看板</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .task-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .task-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .task-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+        }
+        
+        .task-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .task-description {
+            color: #7f8c8d;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>测试111任务看板</h1>
+        
+        <div class="task-board">
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">1</span>
+                    测试111第一步
+                </div>
+                <div class="task-description">
+                    完成测试111的第一步操作流程，确保流程正确执行
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">2</span>
+                    测试111第二步
+                </div>
+                <div class="task-description">
+                    进行测试111的第二步操作，验证流程的连贯性
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">3</span>
+                    测试111第三步
+                </div>
+                <div class="task-description">
+                    执行测试111的第三步操作，检查流程的完整性
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">4</span>
+                    测试111第四步
+                </div>
+                <div class="task-description">
+                    完成测试111的第四步操作，确保所有步骤按顺序执行
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">5</span>
+                    测试111第五步
+                </div>
+                <div class="task-description">
+                    进行测试111的第五步操作，验证最终结果
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
