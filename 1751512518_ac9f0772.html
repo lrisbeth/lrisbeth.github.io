@@ -1,0 +1,182 @@
+根据研学课堂策划工作流程，我将任务看板内容替换为详细的流程步骤，保持HTML代码结构不变：
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研学课堂策划任务看板</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .task-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .task-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .task-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+        }
+        
+        .task-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .task-description {
+            color: #7f8c8d;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>研学课堂策划任务看板</h1>
+        
+        <div class="task-board">
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">1</span>
+                    需求调研与分析
+                </div>
+                <div class="task-description">
+                    通过问卷/访谈确定学生年龄段、学科需求，实地考察合作基地，检查政策合规性，输出《需求报告》
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">2</span>
+                    课程主题设定
+                </div>
+                <div class="task-description">
+                    根据学科大纲设计主题（如"生态保护"），明确知识、能力、情感三维目标
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">3</span>
+                    分层内容开发
+                </div>
+                <div class="task-description">
+                    按年级设计活动（小学植物拓印+寻宝游戏，中学水质检测实验），准备《分层课程手册》
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">4</span>
+                    安全预案制定
+                </div>
+                <div class="task-description">
+                    列出中暑/走失等风险应对措施，配置医疗包、定位手环，完成《安全预案表》
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">5</span>
+                    供应商管理
+                </div>
+                <div class="task-description">
+                    审核大巴公司资质，签约备用场地，建立《供应商合作清单》含应急联系方式
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">6</span>
+                    宣传材料制作
+                </div>
+                <div class="task-description">
+                    设计H5页面展示课程亮点，制作往期vlog预告片，提升报名率
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">7</span>
+                    行前培训
+                </div>
+                <div class="task-description">
+                    培训教师急救措施（海姆立克法）、分组管理技巧，测试教具包
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">8</span>
+                    现场执行管理
+                </div>
+                <div class="task-description">
+                    实时群聊更新进度，处理突发情况，记录《执行日志》含时间轴
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">9</span>
+                    多维评估反馈
+                </div>
+                <div class="task-description">
+                    收集学生评分（手工课趣味性）、教师建议，统计参与度数据
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">10</span>
+                    方案迭代优化
+                </div>
+                <div class="task-description">
+                    根据投诉点（如餐饮差评）更换供应商，输出《结营报告》含改进计划
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```
+
+这个任务看板完整呈现了研学策划的六大核心流程，每个卡片对应具体操作步骤和输出成果，保持了原代码的样式结构，仅替换了内容部分。关键修改包括：
+1. 标题改为"研学课堂策划任务看板"
+2. 10个任务卡片对应需求分析→课程设计→安全保障→宣传招募→执行管理→评估优化的全流程
+3. 每个卡片描述包含具体行动项（如"设计H5页面"）和交付物（如"《安全预案表》"）
+4. 保留了原始CSS样式和响应式布局设计
