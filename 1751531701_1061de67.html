@@ -1,0 +1,354 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研学方案制作三维技能评估模型</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-gl@2.0.9/dist/echarts-gl.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        #chart-container {
+            flex: 7;
+            height: 100%;
+            position: relative;
+        }
+        .info-panel {
+            flex: 3;
+            padding: 20px;
+            background: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .skill-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eaeaea;
+        }
+        .skill-description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #5a6674;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .tag {
+            background: #e1f5fe;
+            color: #0288d1;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .tag.level {
+            background: #e8f5e9;
+            color: #388e3c;
+        }
+        .tag.difficulty {
+            background: #fff8e1;
+            color: #ffa000;
+        }
+        .tag.phase {
+            background: #f3e5f5;
+            color: #8e24aa;
+        }
+        .heading {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 15px 0 10px;
+            color: #2c3e50;
+        }
+        .panel-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 20px;
+            color: #2c3e50;
+        }
+        .instructions {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: auto;
+            border-left: 4px solid #2196f3;
+        }
+        .instructions p {
+            margin: 0 0 10px;
+            font-size: 14px;
+        }
+        .credits {
+            font-size: 12px;
+            color: #9e9e9e;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="chart-container"></div>
+        <div class="info-panel">
+            <div class="panel-title">研学方案制作技能评估模型</div>
+            <div class="skill-title">点击技能点查看详情</div>
+            <div class="skill-description">本模型展示了研学方案制作全流程中的各项关键技能，按照难度、层级和阶段进行三维分布。</div>
+            <div class="tags">
+                <span class="tag level">级别: -</span>
+                <span class="tag difficulty">难度: -</span>
+                <span class="tag phase">阶段: -</span>
+            </div>
+            <div class="instructions">
+                <p><strong>操作说明：</strong></p>
+                <p>- 鼠标拖拽：旋转视图</p>
+                <p>- 鼠标滚轮：缩放视图</p>
+                <p>- 点击技能点：查看技能详情</p>
+            </div>
+            <div class="credits">© 2023 研学方案制作技能评估系统</div>
+        </div>
+    </div>
+
+    <script>
+        // 初始化图表
+        const chartDom = document.getElementById('chart-container');
+        const myChart = echarts.init(chartDom);
+        
+        // 技能数据
+        const skillsData = [
+            { name: "问卷设计能力", level: "初级", difficulty: "简单", phase: "需求调研", 
+              description: "设计结构化问卷（含李克特量表、开放性问题等）" },
+            { name: "焦点访谈技巧", level: "中级", difficulty: "中等", phase: "需求调研", 
+              description: "运用STAR法则进行深度访谈（情境-任务-行动-结果）" },
+            { name: "数据可视化分析", level: "高级", difficulty: "困难", phase: "需求调研", 
+              description: "使用Excel/Python进行频次分析、词云生成" },
+            { name: "课程标准解读", level: "中级", difficulty: "中等", phase: "目标设定", 
+              description: "准确拆解学科核心素养要求（如历史解释、科学探究）" },
+            { name: "SMART目标制定", level: "初级", difficulty: "简单", phase: "目标设定", 
+              description: "设计可量化评估的目标（如'80%学生完成3项标本采集'）" },
+            { name: "跨学科整合设计", level: "高级", difficulty: "困难", phase: "目标设定", 
+              description: "识别多学科融合点（如园林研学结合数学黄金分割）" },
+            { name: "场地风险评估", level: "高级", difficulty: "困难", phase: "资源评估", 
+              description: "运用FMEA（失效模式分析）评估安全隐患" },
+            { name: "成本核算能力", level: "初级", difficulty: "简单", phase: "资源评估", 
+              description: "制作分项预算表（交通/门票/保险等占比）" },
+            { name: "GIS地图应用", level: "中级", difficulty: "中等", phase: "资源评估", 
+              description: "使用奥维互动地图标注应急资源点" },
+            { name: "项目式学习设计", level: "高级", difficulty: "困难", phase: "课程开发", 
+              description: "制作任务驱动型活动（如'模拟考古发掘报告撰写'）" },
+            { name: "差异化教学设计", level: "中级", difficulty: "中等", phase: "课程开发", 
+              description: "设计分层任务单（基础版/进阶版）" },
+            { name: "教具开发能力", level: "初级", difficulty: "简单", phase: "课程开发", 
+              description: "制作研学工具包（如标本采集器+放大镜组合）" },
+            { name: "应急演练设计", level: "中级", difficulty: "中等", phase: "安全预案", 
+              description: "编制情景模拟方案（如中暑处理流程）" },
+            { name: "医疗急救技能", level: "高级", difficulty: "困难", phase: "安全预案", 
+              description: "CPR急救/AED使用（需持证）" },
+            { name: "法律条款解读", level: "高级", difficulty: "困难", phase: "安全预案", 
+              description: "理解《研学旅行服务规范》国家标准" },
+            { name: "钉钉智能管理", level: "初级", difficulty: "简单", phase: "实施管理", 
+              description: "熟练使用签到、审批、日志等功能模块" },
+            { name: "动态调整决策", level: "高级", difficulty: "困难", phase: "实施管理", 
+              description: "根据天气/突发状况快速重构方案（如暴雨转室内课程）" },
+            { name: "冲突调解技巧", level: "中级", difficulty: "中等", phase: "实施管理", 
+              description: "运用非暴力沟通（NVC）处理学生矛盾" },
+            { name: "前后测对比分析", level: "高级", difficulty: "困难", phase: "效果评估", 
+              description: "使用SPSS进行配对样本T检验" },
+            { name: "360度反馈收集", level: "中级", difficulty: "中等", phase: "效果评估", 
+              description: "设计学生-家长-教师三维评价表" },
+            { name: "案例库建设", level: "初级", difficulty: "简单", phase: "效果评估", 
+              description: "建立结构化知识管理系统（按主题/年级标签分类）" }
+        ];
+        
+        // 将技能级别、难度和阶段转换为坐标值
+        const data = skillsData.map(item => {
+            const levelMap = { "初级": 10, "中级": 50, "高级": 90 };
+            const difficultyMap = { "简单": 20, "中等": 50, "困难": 80 };
+            const phaseMap = { "需求调研": 10, "目标设定": 30, "资源评估": 50, "课程开发": 70, "安全预案": 90, "实施管理": 110, "效果评估": 130 };
+            
+            return [
+                levelMap[item.level],
+                difficultyMap[item.difficulty],
+                phaseMap[item.phase],
+                item.name
+            ];
+        });
+        
+        // 配置项
+        const option = {
+            backgroundColor: '#f5f7fa',
+            tooltip: {
+                formatter: function(params) {
+                    const skill = skillsData[params.dataIndex];
+                    return `<div style="font-weight:bold;font-size:15px;margin-bottom:5px">${skill.name}</div>
+                            <div>级别: ${skill.level}</div>
+                            <div>难度: ${skill.difficulty}</div>
+                            <div>阶段: ${skill.phase}</div>`;
+                }
+            },
+            visualMap: {
+                show: false,
+                dimension: 2,
+                min: 0,
+                max: 140,
+                inRange: {
+                    color: ['#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#fee090', '#fdae61', '#f46d43', '#d73027']
+                }
+            },
+            xAxis3D: {
+                name: '技能级别',
+                type: 'value',
+                min: 0,
+                max: 100,
+                nameTextStyle: {
+                    fontSize: 14,
+                    color: '#333'
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#666'
+                    }
+                },
+                axisLabel: {
+                    formatter: function(value) {
+                        if(value === 10) return '初级';
+                        if(value === 50) return '中级';
+                        if(value === 90) return '高级';
+                        return '';
+                    }
+                }
+            },
+            yAxis3D: {
+                name: '难度等级',
+                type: 'value',
+                min: 0,
+                max: 100,
+                nameTextStyle: {
+                    fontSize: 14,
+                    color: '#333'
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#666'
+                    }
+                },
+                axisLabel: {
+                    formatter: function(value) {
+                        if(value === 20) return '简单';
+                        if(value === 50) return '中等';
+                        if(value === 80) return '困难';
+                        return '';
+                    }
+                }
+            },
+            zAxis3D: {
+                name: '工作阶段',
+                type: 'value',
+                min: 0,
+                max: 140,
+                nameTextStyle: {
+                    fontSize: 14,
+                    color: '#333'
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#666'
+                    }
+                },
+                axisLabel: {
+                    formatter: function(value) {
+                        if(value === 10) return '需求调研';
+                        if(value === 30) return '目标设定';
+                        if(value === 50) return '资源评估';
+                        if(value === 70) return '课程开发';
+                        if(value === 90) return '安全预案';
+                        if(value === 110) return '实施管理';
+                        if(value === 130) return '效果评估';
+                        return '';
+                    }
+                }
+            },
+            grid3D: {
+                axisLine: {
+                    lineStyle: { color: '#ccc' }
+                },
+                axisPointer: {
+                    lineStyle: { color: '#999' }
+                },
+                viewControl: {
+                    projection: 'perspective',
+                    autoRotate: false,
+                    distance: 230,
+                    rotateSensitivity: 1.5
+                },
+                light: {
+                    main: {
+                        intensity: 1.2,
+                        shadow: true
+                    },
+                    ambient: {
+                        intensity: 0.3
+                    }
+                }
+            },
+            series: [{
+                type: 'scatter3D',
+                data: data,
+                symbolSize: 20,
+                emphasis: {
+                    itemStyle: {
+                        opacity: 0.8,
+                        borderWidth: 2,
+                        borderColor: '#fff'
+                    },
+                    label: {
+                        fontSize: 14,
+                        backgroundColor: 'rgba(255,255,255,0.9)',
+                        padding: [5, 8]
+                    }
+                }
+            }]
+        };
+        
+        myChart.setOption(option);
+        
+        // 适应窗口大小变化
+        window.addEventListener('resize', function() {
+            myChart.resize();
+        });
+        
+        // 显示技能详情面板
+        myChart.on('click', function(params) {
+            const skill = skillsData[params.dataIndex];
+            const infoPanel = document.querySelector('.info-panel');
+            
+            // 更新面板内容
+            document.querySelector('.skill-title').textContent = skill.name;
+            document.querySelector('.skill-description').textContent = skill.description;
+            
+            document.querySelector('.tag.level').textContent = `级别: ${skill.level}`;
+            document.querySelector('.tag.difficulty').textContent = `难度: ${skill.difficulty}`;
+            document.querySelector('.tag.phase').textContent = `阶段: ${skill.phase}`;
+        });
+    </script>
+</body>
+</html>
+```
