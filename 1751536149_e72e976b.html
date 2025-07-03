@@ -1,0 +1,174 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研学课程方案设计任务看板</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .task-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .task-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .task-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+        }
+        
+        .task-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .task-description {
+            color: #7f8c8d;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>研学课程方案设计任务看板</h1>
+        
+        <div class="task-board">
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">1</span>
+                    需求分析与目标设定
+                </div>
+                <div class="task-description">
+                    通过问卷、访谈了解学生、教师、家长需求，结合《中小学综合实践活动课程指导纲要》设定核心目标
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">2</span>
+                    课程主题与内容设计
+                </div>
+                <div class="task-description">
+                    结合地域特色选择主题，将课程分为"知识讲解""实践体验""反思总结"三部分
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">3</span>
+                    资源整合与场地协调
+                </div>
+                <div class="task-description">
+                    联系博物馆、研学基地确认开放时间，聘请专家资源，准备学习手册等物资
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">4</span>
+                    安全保障方案制定
+                </div>
+                <div class="task-description">
+                    列出潜在风险并制定预案，明确带队教师职责，购买意外保险
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">5</span>
+                    课程实施与动态调整
+                </div>
+                <div class="task-description">
+                    组织行前培训，每日记录学生表现，根据实际情况灵活调整活动
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">6</span>
+                    成果评价与反馈优化
+                </div>
+                <div class="task-description">
+                    通过学生自评、小组互评、教师观察综合打分，收集反馈建议优化方案
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">7</span>
+                    研学课程方案手册制作
+                </div>
+                <div class="task-description">
+                    整合所有内容形成完整的《研学课程方案手册》，包括目标、内容、资源等
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">8</span>
+                    学生研学手册制作
+                </div>
+                <div class="task-description">
+                    制作配套的《学生研学手册》，包含学习任务、安全须知等内容
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">9</span>
+                    教师指导手册制作
+                </div>
+                <div class="task-description">
+                    制作《教师指导手册》，明确各环节操作流程和注意事项
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">10</span>
+                    最终方案汇报与确认
+                </div>
+                <div class="task-description">
+                    向学校管理层汇报方案，根据反馈进行最终调整确认
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```
