@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研学课程方案设计任务看板</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .task-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .task-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .task-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+        }
+        
+        .task-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .task-description {
+            color: #7f8c8d;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>研学课程方案设计任务看板</h1>
+        
+        <div class="task-board">
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">1</span>
+                    需求调研与分析
+                </div>
+                <div class="task-description">
+                    通过问卷调查和学校课程大纲分析学生年龄段、学科背景和特殊需求，形成《学生需求分析报告》
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">2</span>
+                    资源评估
+                </div>
+                <div class="task-description">
+                    实地考察研学基地，评估交通、设施、安全条件，与合作方沟通资源支持，形成《资源可行性报告》
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">3</span>
+                    课程目标设定
+                </div>
+                <div class="task-description">
+                    结合学科标准设定知识、能力、情感三维目标，设计可量化的评估方式，形成《研学课程目标清单》
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">4</span>
+                    主题与模块划分
+                </div>
+                <div class="task-description">
+                    将课程拆分为"行前预习-实地探究-总结延伸"三阶段，设计具体模块内容，形成《课程模块框架图》
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">5</span>
+                    活动形式设计
+                </div>
+                <div class="task-description">
+                    根据主题选择互动形式（如实验操作、访谈等），使用《研学活动设计模板》规划时间、分工和材料清单
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">6</span>
+                    风险预案制定
+                </div>
+                <div class="task-description">
+                    识别交通、天气、健康等风险，制定应对措施和备用方案，形成《安全应急预案》
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">7</span>
+                    后勤保障准备
+                </div>
+                <div class="task-description">
+                    核对车辆租赁、保险购买、餐饮安排、紧急联络表等后勤事项，使用《研学后勤检查表》逐项确认
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">8</span>
+                    方案文档撰写
+                </div>
+                <div class="task-description">
+                    整合所有内容形成完整方案，包括课程背景、日程表、评估标准和预算表，输出《研学课程方案》
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">9</span>
+                    专家评审与修订
+                </div>
+                <div class="task-description">
+                    邀请学科教师、安全专家和家长代表试听模拟课程，收集意见并修订方案，形成《方案修订记录》
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">10</span>
+                    实施与迭代优化
+                </div>
+                <div class="task-description">
+                    执行过程中记录学生参与度，收集反馈进行复盘，持续优化课程方案
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
