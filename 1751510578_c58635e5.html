@@ -1,0 +1,178 @@
+根据您提供的模板代码，我将为您创建一个研学课程方案设计的任务看板HTML文件。以下是完整的代码：
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研学课程方案设计任务看板</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .task-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .task-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .task-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+        }
+        
+        .task-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .task-description {
+            color: #7f8c8d;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>研学课程方案设计任务看板</h1>
+        
+        <div class="task-board">
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">1</span>
+                    需求分析与目标设定
+                </div>
+                <div class="task-description">
+                    明确研学课程的目标群体（五年级学生），分析其认知水平和兴趣点，设定具体可衡量的学习目标
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">2</span>
+                    主题确定与资源调研
+                </div>
+                <div class="task-description">
+                    根据课程目标确定研学主题，调研相关教育资源（博物馆、科技馆、自然景区等）及其教育内容
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">3</span>
+                    课程框架设计
+                </div>
+                <div class="task-description">
+                    设计课程整体框架，包括知识模块划分、时间安排、前后衔接关系等，确保逻辑性和连贯性
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">4</span>
+                    活动内容开发
+                </div>
+                <div class="task-description">
+                    针对每个知识模块设计具体的活动内容，包括参观讲解、互动体验、小组讨论、实践操作等形式
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">5</span>
+                    教学材料准备
+                </div>
+                <div class="task-description">
+                    开发配套的教学材料，如学习手册、任务单、观察记录表等，辅助学生进行研学活动
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">6</span>
+                    安全保障方案
+                </div>
+                <div class="task-description">
+                    制定详细的安全预案，包括风险评估、应急处理流程、医疗保障、人员配备等安全措施
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">7</span>
+                    评价体系设计
+                </div>
+                <div class="task-description">
+                    设计多元化的评价体系，包括过程性评价和结果性评价，制定具体的评价标准和工具
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">8</span>
+                    师资培训方案
+                </div>
+                <div class="task-description">
+                    制定带队教师培训方案，包括课程内容理解、活动组织技巧、应急处理能力等方面的培训
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">9</span>
+                    方案测试与优化
+                </div>
+                <div class="task-description">
+                    组织小规模试点实施，收集反馈意见，对课程方案进行优化调整，确保方案的可操作性
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">10</span>
+                    成果展示方案
+                </div>
+                <div class="task-description">
+                    设计研学成果展示方案，包括学生作品展示、汇报演出、成果册制作等形式，展现学习成效
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```
+
+这个HTML文件创建了一个研学课程方案设计的任务看板，包含了10个关键任务步骤，每个步骤都有明确的标题和详细描述。看板采用了响应式设计，可以适应不同屏幕尺寸，视觉效果清晰美观。您可以直接将此代码保存为HTML文件并在浏览器中打开使用。
