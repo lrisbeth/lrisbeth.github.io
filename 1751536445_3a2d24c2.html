@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研学课程方案设计任务看板</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .task-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .task-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .task-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+        }
+        
+        .task-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .task-description {
+            color: #7f8c8d;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>研学课程方案设计任务看板</h1>
+        
+        <div class="task-board">
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">1</span>
+                    需求调研与分析
+                </div>
+                <div class="task-description">
+                    明确研学主题、对象、核心目标和资源条件，形成《研学需求调研报告》
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">2</span>
+                    主题与路线设计
+                </div>
+                <div class="task-description">
+                    围绕核心主题设计"主线+分支"活动，如西安历史研学主线为"秦汉唐文化"
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">3</span>
+                    课程内容开发
+                </div>
+                <div class="task-description">
+                    分模块设计行前课、行中课、行后课，如行中课完成"榫卯结构拼装挑战"
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">4</span>
+                    专家与师资对接
+                </div>
+                <div class="task-description">
+                    邀请领域专家如非遗传承人设计特色环节，如景德镇陶瓷研学邀请匠人
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">5</span>
+                    风险评估与预案
+                </div>
+                <div class="task-description">
+                    列出潜在风险如交通、户外活动，制定应对措施如备急救包
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">6</span>
+                    后勤协调
+                </div>
+                <div class="task-description">
+                    签订用车、餐饮、保险协议，确认紧急联络人，购买含医疗救援的意外险
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">7</span>
+                    家长沟通
+                </div>
+                <div class="task-description">
+                    发放《致家长的一封信》，明确行程、费用、携带物品
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">8</span>
+                    行前培训
+                </div>
+                <div class="task-description">
+                    教师、助教熟悉流程，分配职责如分组管理、拍照记录
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">9</span>
+                    过程管理
+                </div>
+                <div class="task-description">
+                    使用微信群、打卡APP实时跟踪学生状态，如每小时清点人数
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">10</span>
+                    评价与成果输出
+                </div>
+                <div class="task-description">
+                    多维度评价学生任务完成度，举办分享会，汇编优秀作品如"城市生态调研报告"
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
