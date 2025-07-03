@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研学课程方案设计任务看板</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .task-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .task-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .task-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+        }
+        
+        .task-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .task-description {
+            color: #7f8c8d;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>研学课程方案设计任务看板</h1>
+        
+        <div class="task-board">
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">1</span>
+                    需求调研与分析
+                </div>
+                <div class="task-description">
+                    发放电子问卷+焦点访谈，用Excel分析学生需求数据，生成《研学需求分析报告》
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">2</span>
+                    教育目标设定
+                </div>
+                <div class="task-description">
+                    对照课标制定SMART目标，设计学科融合方案，输出《研学教育目标矩阵表》
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">3</span>
+                    资源评估与选址
+                </div>
+                <div class="task-description">
+                    从教育性/安全性/经济性/接待量四维度评估场地，制作《研学基地评估报告》
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">4</span>
+                    课程内容开发
+                </div>
+                <div class="task-description">
+                    设计模块化课程+差异化任务单，编制《研学课程手册》含分钟级日程
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">5</span>
+                    安全预案制定
+                </div>
+                <div class="task-description">
+                    用风险矩阵评估隐患，组织疏散演练，完成《安全执行手册》含应急流程图
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">6</span>
+                    实施与动态调整
+                </div>
+                <div class="task-description">
+                    使用钉钉打卡+石墨文档实时记录，预留20%弹性时间应对突发情况
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">7</span>
+                    效果评估与迭代
+                </div>
+                <div class="task-description">
+                    通过学生成果展+家长反馈+成本分析多维度评估，建立研学案例库
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">8</span>
+                    方案初稿生成
+                </div>
+                <div class="task-description">
+                    整合前期成果生成方案初稿，包含课程计划、活动设计、安全预案等模块
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">9</span>
+                    专家评审与修改
+                </div>
+                <div class="task-description">
+                    组织教育专家+安全顾问进行方案评审，根据反馈意见进行优化调整
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">10</span>
+                    方案终稿与汇报
+                </div>
+                <div class="task-description">
+                    完成方案终稿制作，使用可视化工具制作汇报材料向校方/家长展示
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
