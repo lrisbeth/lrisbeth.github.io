@@ -1,0 +1,352 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>亚马逊Listing优化三维技能评估模型</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-gl@2.0.9/dist/echarts-gl.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        #chart-container {
+            flex: 7;
+            height: 100%;
+            position: relative;
+        }
+        .info-panel {
+            flex: 3;
+            padding: 20px;
+            background: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .skill-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eaeaea;
+        }
+        .skill-description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #5a6674;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .tag {
+            background: #e1f5fe;
+            color: #0288d1;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .tag.level {
+            background: #e8f5e9;
+            color: #388e3c;
+        }
+        .tag.difficulty {
+            background: #fff8e1;
+            color: #ffa000;
+        }
+        .tag.phase {
+            background: #f3e5f5;
+            color: #8e24aa;
+        }
+        .heading {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 15px 0 10px;
+            color: #2c3e50;
+        }
+        .panel-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 20px;
+            color: #2c3e50;
+        }
+        .instructions {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: auto;
+            border-left: 4px solid #2196f3;
+        }
+        .instructions p {
+            margin: 0 0 10px;
+            font-size: 14px;
+        }
+        .credits {
+            font-size: 12px;
+            color: #9e9e9e;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="chart-container"></div>
+        <div class="info-panel">
+            <div class="panel-title">亚马逊Listing优化技能评估模型</div>
+            <div class="skill-title">点击技能点查看详情</div>
+            <div class="skill-description">本模型展示了亚马逊Listing优化工作流程中的各项关键技能，按照难度、层级和阶段进行三维分布。</div>
+            <div class="tags">
+                <span class="tag level">级别: -</span>
+                <span class="tag difficulty">难度: -</span>
+                <span class="tag phase">阶段: -</span>
+            </div>
+            <div class="instructions">
+                <p><strong>操作说明：</strong></p>
+                <p>- 鼠标拖拽：旋转视图</p>
+                <p>- 鼠标滚轮：缩放视图</p>
+                <p>- 点击技能点：查看技能详情</p>
+            </div>
+            <div class="credits">© 2023 亚马逊Listing优化工作流程评估系统</div>
+        </div>
+    </div>
+
+    <script>
+        // 初始化图表
+        const chartDom = document.getElementById('chart-container');
+        const myChart = echarts.init(chartDom);
+        
+        // 技能数据
+        const skillsData = [
+            { name: "市场分析能力", level: "高级", difficulty: "困难", phase: "前期", 
+              description: "分析市场趋势和消费者需求，识别产品机会和潜在风险。" },
+            { name: "竞品分析能力", level: "中级", difficulty: "中等", phase: "前期", 
+              description: "研究竞争对手的Listing表现，识别优势和不足，制定差异化策略。" },
+            { name: "工具使用能力", level: "中级", difficulty: "中等", phase: "前期", 
+              description: "熟练使用Helium10等亚马逊运营工具进行数据分析和优化。" },
+            { name: "关键词挖掘与筛选", level: "高级", difficulty: "困难", phase: "前期", 
+              description: "通过多种渠道挖掘高价值关键词，并进行有效筛选和分类。" },
+            { name: "关键词布局策略", level: "中级", difficulty: "中等", phase: "中期", 
+              description: "将关键词合理布局到标题、五点描述和产品描述中，提高搜索排名。" },
+            { name: "文案写作能力", level: "中级", difficulty: "中等", phase: "中期", 
+              description: "撰写吸引人的产品文案，突出产品卖点和差异化优势。" },
+            { name: "标题优化技巧", level: "初级", difficulty: "简单", phase: "中期", 
+              description: "编写符合亚马逊规则且包含核心关键词的产品标题。" },
+            { name: "五点描述优化", level: "中级", difficulty: "中等", phase: "中期", 
+              description: "优化五点描述，突出产品核心卖点，提高转化率。" },
+            { name: "产品描述写作", level: "中级", difficulty: "中等", phase: "中期", 
+              description: "撰写详细的产品描述，增强消费者信任和购买欲望。" },
+            { name: "摄影与构图能力", level: "高级", difficulty: "困难", phase: "中期", 
+              description: "拍摄高质量的产品图片，展示产品特点和优势。" },
+            { name: "图片处理软件技能", level: "中级", difficulty: "中等", phase: "中期", 
+              description: "使用Photoshop等软件优化产品图片，提高视觉吸引力。" },
+            { name: "信息图设计能力", level: "高级", difficulty: "困难", phase: "中期", 
+              description: "设计清晰的信息图表，直观展示产品参数和特点。" },
+            { name: "视频制作能力", level: "高级", difficulty: "困难", phase: "中期", 
+              description: "制作高质量的产品视频，增强产品展示效果。" },
+            { name: "HTML基础", level: "初级", difficulty: "简单", phase: "中期", 
+              description: "使用基本HTML代码优化A+页面的排版和布局。" },
+            { name: "A+内容设计", level: "中级", difficulty: "中等", phase: "中期", 
+              description: "设计吸引人的A+内容，提升品牌形象和转化率。" },
+            { name: "后台属性管理", level: "初级", difficulty: "简单", phase: "中期", 
+              description: "准确填写产品后台属性，提高产品分类准确性。" },
+            { name: "Search Terms优化", level: "中级", difficulty: "中等", phase: "中期", 
+              description: "优化Search Terms字段，提高产品搜索相关性。" },
+            { name: "价格敏感度分析", level: "高级", difficulty: "困难", phase: "后期", 
+              description: "分析消费者价格敏感度，制定有竞争力的定价策略。" },
+            { name: "促销策略制定", level: "中级", difficulty: "中等", phase: "后期", 
+              description: "设计有效的促销活动，提高销量和排名。" },
+            { name: "数据监控与分析", level: "高级", difficulty: "困难", phase: "后期", 
+              description: "监控Listing表现数据，分析优化效果和问题。" },
+            { name: "A/B测试能力", level: "高级", difficulty: "困难", phase: "后期", 
+              description: "设计并执行A/B测试，验证不同优化方案的效果。" },
+            { name: "用户反馈分析", level: "中级", difficulty: "中等", phase: "后期", 
+              description: "分析用户评价和反馈，持续改进产品和服务。" }
+        ];
+        
+        // 将技能级别、难度和阶段转换为坐标值
+        const data = skillsData.map(item => {
+            const levelMap = { "初级": 10, "中级": 50, "高级": 90 };
+            const difficultyMap = { "简单": 20, "中等": 50, "困难": 80 };
+            const phaseMap = { "前期": 20, "中期": 50, "后期": 80 };
+            
+            return [
+                levelMap[item.level],
+                difficultyMap[item.difficulty],
+                phaseMap[item.phase],
+                item.name
+            ];
+        });
+        
+        // 配置项
+        const option = {
+            backgroundColor: '#f5f7fa',
+            tooltip: {
+                formatter: function(params) {
+                    const skill = skillsData[params.dataIndex];
+                    return `<div style="font-weight:bold;font-size:15px;margin-bottom:5px">${skill.name}</div>
+                            <div>级别: ${skill.level}</div>
+                            <div>难度: ${skill.difficulty}</div>
+                            <div>阶段: ${skill.phase}</div>`;
+                }
+            },
+            visualMap: {
+                show: false,
+                dimension: 2,
+                min: 0,
+                max: 100,
+                inRange: {
+                    color: ['#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#fee090', '#fdae61', '#f46d43', '#d73027']
+                }
+            },
+            xAxis3D: {
+                name: '技能级别',
+                type: 'value',
+                min: 0,
+                max: 100,
+                nameTextStyle: {
+                    fontSize: 14,
+                    color: '#333'
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#666'
+                    }
+                },
+                axisLabel: {
+                    formatter: function(value) {
+                        if(value === 10) return '初级';
+                        if(value === 50) return '中级';
+                        if(value === 90) return '高级';
+                        return '';
+                    }
+                }
+            },
+            yAxis3D: {
+                name: '难度等级',
+                type: 'value',
+                min: 0,
+                max: 100,
+                nameTextStyle: {
+                    fontSize: 14,
+                    color: '#333'
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#666'
+                    }
+                },
+                axisLabel: {
+                    formatter: function(value) {
+                        if(value === 20) return '简单';
+                        if(value === 50) return '中等';
+                        if(value === 80) return '困难';
+                        return '';
+                    }
+                }
+            },
+            zAxis3D: {
+                name: '工作阶段',
+                type: 'value',
+                min: 0,
+                max: 100,
+                nameTextStyle: {
+                    fontSize: 14,
+                    color: '#333'
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#666'
+                    }
+                },
+                axisLabel: {
+                    formatter: function(value) {
+                        if(value === 20) return '前期';
+                        if(value === 50) return '中期';
+                        if(value === 80) return '后期';
+                        return '';
+                    }
+                }
+            },
+            grid3D: {
+                axisLine: {
+                    lineStyle: { color: '#ccc' }
+                },
+                axisPointer: {
+                    lineStyle: { color: '#999' }
+                },
+                viewControl: {
+                    projection: 'perspective',
+                    autoRotate: false,
+                    distance: 230,
+                    rotateSensitivity: 1.5
+                },
+                light: {
+                    main: {
+                        intensity: 1.2,
+                        shadow: true
+                    },
+                    ambient: {
+                        intensity: 0.3
+                    }
+                }
+            },
+            series: [{
+                type: 'scatter3D',
+                data: data,
+                symbolSize: 20,
+                emphasis: {
+                    itemStyle: {
+                        opacity: 0.8,
+                        borderWidth: 2,
+                        borderColor: '#fff'
+                    },
+                    label: {
+                        fontSize: 14,
+                        backgroundColor: 'rgba(255,255,255,0.9)',
+                        padding: [5, 8]
+                    }
+                }
+            }]
+        };
+        
+        myChart.setOption(option);
+        
+        // 适应窗口大小变化
+        window.addEventListener('resize', function() {
+            myChart.resize();
+        });
+        
+        // 显示技能详情面板
+        myChart.on('click', function(params) {
+            const skill = skillsData[params.dataIndex];
+            const infoPanel = document.querySelector('.info-panel');
+            
+            // 更新面板内容
+            document.querySelector('.skill-title').textContent = skill.name;
+            document.querySelector('.skill-description').textContent = skill.description;
+            
+            document.querySelector('.tag.level').textContent = `级别: ${skill.level}`;
+            document.querySelector('.tag.difficulty').textContent = `难度: ${skill.difficulty}`;
+            document.querySelector('.tag.phase').textContent = `阶段: ${skill.phase}`;
+        });
+    </script>
+</body>
+</html>
+```
