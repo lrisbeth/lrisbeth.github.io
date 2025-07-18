@@ -1,0 +1,164 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研学课程方案设计任务看板</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .task-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .task-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .task-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+        }
+        
+        .task-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .task-description {
+            color: #7f8c8d;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>研学课程方案设计任务看板</h1>
+        
+        <div class="task-board">
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">1</span>
+                    需求调研与分析
+                </div>
+                <div class="task-description">
+                    明确学生年龄段、学科关联性、人数规模，与学校沟通确定核心能力目标，考察研学资源
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">2</span>
+                    课程主题与目标设定
+                </div>
+                <div class="task-description">
+                    结合调研结果提炼主题，设计知识、能力、情感三维目标，关联学科内容
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">3</span>
+                    行程与活动设计
+                </div>
+                <div class="task-description">
+                    按天数设计每日行程，平衡学习与休息，设计参观讲解、实践任务、互动环节
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">4</span>
+                    资源协调与成本核算
+                </div>
+                <div class="task-description">
+                    与基地、交通、餐饮供应商签订协议，编制详细预算表，争取优惠政策
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">5</span>
+                    安全预案制定
+                </div>
+                <div class="task-description">
+                    标注每个环节的风险点，制定应急处理措施，配备必要安全设备
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">6</span>
+                    课程实施与督导
+                </div>
+                <div class="task-description">
+                    开展行前培训，实施每日签到打卡，拍照记录关键环节，处理突发情况
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">7</span>
+                    评价与优化
+                </div>
+                <div class="task-description">
+                    收集学生满意度问卷，分析目标达成率，生成评估报告，制定优化方案
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">8</span>
+                    方案文档生成
+                </div>
+                <div class="task-description">
+                    整合所有环节成果，生成完整的研学课程方案文档，包括大纲、行程表等
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">9</span>
+                    汇报材料制作
+                </div>
+                <div class="task-description">
+                    制作研学课程方案的汇报看板，包含关键数据、照片和成果展示
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```
