@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研学课程方案设计任务看板</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .task-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .task-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .task-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+        }
+        
+        .task-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .task-description {
+            color: #7f8c8d;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>研学课程方案设计任务看板</h1>
+        
+        <div class="task-board">
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">1</span>
+                    研学目标与主题确定
+                </div>
+                <div class="task-description">
+                    通过问卷/访谈了解学生需求，结合课标确定研学主题和目标，如"江南水乡生态保护"
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">2</span>
+                    课程内容开发
+                </div>
+                <div class="task-description">
+                    构建知识图谱整合多学科内容，设计实践模块如水质采样检测流程
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">3</span>
+                    安全保障体系建立
+                </div>
+                <div class="task-description">
+                    制定风险评估矩阵，配置医疗包，安排专业监护人员
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">4</span>
+                    行程规划与成本控制
+                </div>
+                <div class="task-description">
+                    设计详细时间轴，制作成本控制表进行供应商比选
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">5</span>
+                    评价工具开发
+                </div>
+                <div class="task-description">
+                    设计三维度评估表，制作标准化的研学报告模板
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">6</span>
+                    实施过程记录
+                </div>
+                <div class="task-description">
+                    使用研学APP进行实时记录，采集各环节完成情况数据
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">7</span>
+                    效果评估与改进
+                </div>
+                <div class="task-description">
+                    分析学生操作失误率等数据，通过PDCA循环进行方案迭代
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">8</span>
+                    文档备案与标准化
+                </div>
+                <div class="task-description">
+                    完成所有文档模板的教育局备案审查，建立标准化流程
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">9</span>
+                    成果汇报展示
+                </div>
+                <div class="task-description">
+                    制作包含数据对比的成果展示看板，呈现知识留存率提升等关键指标
+                </div>
+            </div>
+            
+            <div class="task-card">
+                <div class="task-title">
+                    <span class="task-number">10</span>
+                    经验总结与推广
+                </div>
+                <div class="task-description">
+                    整理验证数据形成案例库，制定跨区域推广方案
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
